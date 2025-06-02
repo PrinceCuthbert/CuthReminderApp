@@ -27,26 +27,31 @@ function Counter() {
     setCount((prevCount) => prevCount - 1);
   }
   return (
-    <div>
-      <div>
-        <button>-</button>
-        <span>Step:5</span>
-        <button>+</button>
+    <div className="App">
+      <div className="container">
+        <div className="button-group">
+          <button>-</button>
+          <span>Step: 5</span>
+          <button>+</button>
+        </div>
+
+        <div className="button-group">
+          <button onClick={DecrementCounter}>-</button>
+          <span>Count: {count}</span>
+          <button onClick={IncrementCounter}>+</button>
+        </div>
+
+        {count >= 0 ? (
+          <p className="date-message">
+            {count} days from today is {futureDate.toDateString()}
+          </p>
+        ) : (
+          <p className="date-message">
+            {Math.abs(count)} days ago from today was{" "}
+            {futureDate.toDateString()}
+          </p>
+        )}
       </div>
-      <div>
-        <button onClick={DecrementCounter}>-</button>
-        <span>Count:{count}</span>
-        <button onClick={IncrementCounter}>+</button>
-      </div>
-      {count >= 0 ? (
-        <p>
-          {count} days from today is {futureDate.toDateString()}
-        </p>
-      ) : (
-        <p>
-          {Math.abs(count)} days ago from today was {futureDate.toDateString()}
-        </p>
-      )}
     </div>
   );
 }

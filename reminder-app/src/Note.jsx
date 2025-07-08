@@ -77,6 +77,12 @@ export default function Note() {
 
     setEditingIndex(null);
   }
+
+  function updateAndSaveTasks(newTasks) {
+    setTasks(newTasks);
+    localStorage.setItem("tasks", JSON.stringify(newTasks));
+  }
+
   return (
     <>
       <div className="container">
